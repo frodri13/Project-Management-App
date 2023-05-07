@@ -52,7 +52,7 @@ model Task {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  STATUS TASK_STATUS @default(NOT_STARTED)
+  status TASK_STATUS @default(NOT_STARTED)
   name   String
 
   projectId String
@@ -61,6 +61,7 @@ model Task {
   ownerId String
   owner   User   @relation(fields: [ownerId], references: [id])
 
+  description String?
   deleted Boolean @default(false)
   due DateTime?
 
